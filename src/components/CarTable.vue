@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
 import DataTable from "primevue/datatable";
 import Column from 'primevue/column';
 import Dropdown from 'primevue/dropdown';
@@ -69,6 +69,7 @@ const numberMarks = [
   },
 ]
 
+const criticalNumber = ref();
 </script>
 
 <template>
