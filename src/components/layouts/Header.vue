@@ -1,5 +1,5 @@
 <script setup>
-    
+    import Button from 'primevue/button'
 </script>
 
 <template>
@@ -43,6 +43,9 @@
                     <li><a href="#">Portfolio</a></li>
                     <li><a href="#">Shortcodes</a></li>
                 </ul>
+                <button type="button" class="p-link p-ml-auto" @click="login">
+                    <font-awesome-icon icon="fa-brands fa-github" />
+                </button>
             </div>
         </div>
     </section>
