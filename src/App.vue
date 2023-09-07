@@ -1,7 +1,7 @@
 <script setup>
     import ButtonDelete from '@/components/ButtonDelete.vue';
     import CarList from '@/components/CarList.vue';
-    import Header from '@/components/Header.vue';
+    import Header from '@/components//layouts/Header.vue';
     import Footer from '@/components/Footer.vue';
     import CarTable from '@/components/CarTable.vue';
 
