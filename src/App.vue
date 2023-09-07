@@ -5,7 +5,7 @@
     import Footer from '@/components/Footer.vue';
     import CarTable from '@/components/CarTable.vue';
 
-    const carsArray = [
+    const cars = [
         // {
         //     brand: 'BMW',
         //     price: 2000000,
@@ -16,6 +16,7 @@
         // },
         {
             brand: 'Mercedes',
+            criticalNumber: 1,
             price: 2500000,
             year: 1994,
             volume: 4.0,
@@ -43,8 +44,8 @@
 
 <template>
     <Header/>
-    <CarList :cars="carsArray"/>
-    <CarTable :cars="carsArray"/>
+    <CarList :cars="cars"/>
+    <CarTable :cars="cars"/>
     <Footer/>
 </template>
 
