@@ -4,6 +4,7 @@
     import Header from '@/components//layouts/Header.vue';
     import Footer from '@/components/Footer.vue';
     import CarTable from '@/components/CarTable.vue';
+    import SideBar from '@/components/SideBar.vue';
 
     const carsArray = [
         // {
@@ -44,6 +45,7 @@
 <template>
     <Header/>
     <CarList :cars="carsArray"/>
+    <SideBar/>
     <CarTable :cars="carsArray"/>
     <Footer/>
 </template>

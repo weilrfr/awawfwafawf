@@ -1,5 +1,31 @@
 <script setup>
     import Button from 'primevue/button'
+    import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+    import { onMounted } from 'vue';
+    import { useAuto } from '@/composable/useAuto';
+import { async } from '@firebase/util';
+
+    const { auto, createAuto } = useAuto();
+    
+    onMounted(async () => {
+        await createAuto();
+    })
+
+    const googleRegister = () => {
+    const auth = getAuth()
+    const provider = new GoogleAuthProvider()
+
+    signInWithPopup(auth, provider)
+        .then((userCredential) => {
+        const user = userCredential.user
+        localStorage.setItem('user', JSON.stringify(user))
+        })
+        .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        console.log(errorCode, errorMessage)
+        })
+}
 </script>
 
 <template>
@@ -8,27 +34,27 @@
             <ul>
                 <li>
                     <a>
-                        <font-awesome-icon icon="fa-brands fa-discord" />
+                        <i class="pi pi-github"></i>
                     </a>
                 </li>
                 <li>
                     <a>
-                        <font-awesome-icon icon="fa-brands fa-tiktok" />
+                        <i class="pi pi-discord"></i>
                     </a>
                 </li>
                 <li>
                     <a>
-                        <font-awesome-icon icon="fa-brands fa-github" />
+                        <i class="pi pi-discord"></i>
                     </a>
                 </li>
                 <li>
                     <a>
-                        <font-awesome-icon icon="fa-brands fa-twitter" />            
+                        <i class="pi pi-discord"></i>            
                     </a>
                 </li>
                 <li>
                     <a>
-                        <font-awesome-icon icon="fa-brands fa-facebook" />
+                        <i class="pi pi-discord"></i>
                     </a>
                 </li>
             </ul>
@@ -42,10 +68,17 @@
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Portfolio</a></li>
                     <li><a href="#">Shortcodes</a></li>
+                    <li>
+                        <button type="button" class="p-link p-ml-auto" @click="googleRegister">
+                            <i class="pi pi-google"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="p-link p-ml-auto" @click="createAuto">
+                            <i class="pi pi-plus"></i>
+                        </button>
+                    </li>
                 </ul>
-                <button type="button" class="p-link p-ml-auto" @click="login">
-                    <font-awesome-icon icon="fa-brands fa-github" />
-                </button>
             </div>
         </div>
     </section>
