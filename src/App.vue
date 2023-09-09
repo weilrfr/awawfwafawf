@@ -4,6 +4,7 @@
     import Header from '@/components//layouts/Header.vue';
     import Footer from '@/components/Footer.vue';
     import CarTable from '@/components/CarTable.vue';
+    import SideBar from '@/components/SideBar.vue';
 
     const cars = [
         // {
@@ -43,12 +44,29 @@
 </script>
 
 <template>
-    <Header/>
-    <CarList :cars="cars"/>
-    <CarTable :cars="cars"/>
-    <Footer/>
+    <section class="layout-content">
+        <div class="sidebar-cont">
+            <SideBar/>
+        </div>
+        <div class="content">
+            <Header/>
+            <CarList :cars="cars"/>
+            <CarTable :cars="cars"/>
+            <CarTable :cars="carsArray"/>
+            <Footer/>
+        </div>
+    </section>
+
 </template>
 
 <style scoped>
-    
+    .layout-content {
+        display: flex;
+    }
+    .content {
+        flex-basis: 98%;
+    }
+    .sidebar-cont {
+        flex-basis: 2%;
+    }
 </style>

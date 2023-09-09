@@ -2,6 +2,9 @@
 import Card from 'primevue/card'
 import FieldSet from 'primevue/fieldset';
 import TextArea from 'primevue/textarea';
+import { ref } from 'vue';
+
+const value = ref('');
 </script>
 
 <template>
@@ -44,7 +47,7 @@ import TextArea from 'primevue/textarea';
             </div>
             <div class="textarea">
                 <span class="p-float-label">
-                    <TextArea v-model="value" autoResize rows="10" cols="60"/>
+                    <TextArea v-model="value" autoResize rows="10" cols="60" @input="console.log(value)"/>
                     <label>Напишите нам</label>
                 </span>
             </div>
