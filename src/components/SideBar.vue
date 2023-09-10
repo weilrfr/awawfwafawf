@@ -4,30 +4,61 @@ import Sidebar from 'primevue/sidebar';
 import Button from "primevue/button";
 import InputSwitch from 'primevue/inputswitch';
 import InputText from 'primevue/inputtext';
+import { useToast } from 'primevue/usetoast';
+import { useField, useForm } from 'vee-validate';
+
+const { handleSubmit, resetForm } = useForm();
+const { value, errorMessage } = useField('value', validateField);
+
+const toast = useToast();
+
+function validateField(value) {
+    if (!value) {
+        return 'Name - Surname is required.';
+    }
+
+    return true;
+}
 
 const checked = ref(false);
 const visible = ref(false);
-const value = ref(0);
+// const value = ref(null);
+const value1 = ref(null);
+
+const onSubmit = handleSubmit((values) => {
+    if (values.value && values.value.length > 0) {
+        toast.add({ severity: 'info', summary: 'Form Submitted', detail: values.value, life: 3000 });
+        resetForm();
+    }
+});
+
 </script>
 
 <template>
     <div class="card flex justify-content-center side-bar">
-        <Sidebar v-model:visible="visible">
-            <div class="sidebar-content">
-                <div class="card flex flex-wrap justify-content-center">
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
-                        <InputText v-model="value1" placeholder="Search" />
-                    </span>
-                </div>
-                <div class="card flex justify-content-center">
-                    <InputText type="text" v-model="value"/>
-                </div>
-                <div class="card flex justify-content-center">
-                    <InputSwitch v-model="checked" />
-                </div>
-            </div>
-        </Sidebar>
+        <form>
+            <Sidebar v-model:visible="visible">
+                <form @submit="onSubmit" class="flex flex-column gap-2">
+                    <div class="sidebar-content">
+                        <div class="card flex flex-wrap justify-content-center">
+                            <span class="p-input-icon-left">
+                                <i class="pi pi-search" />
+                                <InputText v-model="value1" placeholder="Search" :class="{ 'p-invalid': errorMessage }"/>
+                            </span>
+                        </div>
+                        <span class="p-float-label">
+                            <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
+                            <label for="value">Input</label>
+                        </span>
+                        <div class="card flex justify-content-center">
+                            <InputSwitch v-model="checked"/>
+                        </div>
+                        <small class="p-error" id="text-error">{{ errorMessage || '&nbsp;' }}</small>
+                        <Button type="submit" label="Submit" />
+                    </div>
+                </form>
+            </Sidebar>
+        </form>
         <Button icon="pi pi-arrow-right" @click="visible = true" />
     </div>
 </template>
@@ -45,6 +76,6 @@ const value = ref(0);
 
     }
     .sidebar-content > div {
-        padding: 5px 0px;
+        padding: 20px 0px;
     }
 </style>

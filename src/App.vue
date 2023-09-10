@@ -5,6 +5,7 @@
     import Footer from '@/components/Footer.vue';
     import CarTable from '@/components/CarTable.vue';
     import SideBar from '@/components/SideBar.vue';
+    import Toasts from '@/components/Toasts.vue';
 
     const cars = [
         // {
@@ -41,6 +42,7 @@
             img: 'https://s.auto.drom.ru/i24198/c/photos/fullsize/mercedes-benz/s-class/mercedes-benz_s-class_540689.jpg'
         }
     ];
+    
 </script>
 
 <template>
@@ -49,10 +51,10 @@
             <SideBar/>
         </div>
         <div class="content">
+            <Toasts/>
             <Header/>
             <CarList :cars="cars"/>
             <CarTable :cars="cars"/>
-            <CarTable :cars="carsArray"/>
             <Footer/>
         </div>
     </section>
