@@ -1,13 +1,6 @@
 <script setup>
     import CarItem from '@/components/CarItem.vue';
     import { defineProps } from 'vue';
-
-    const props = defineProps({
-        cars: {
-            type: Array,
-            required: true
-        }
-    })
 </script>
 
 <template>

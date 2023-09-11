@@ -4,7 +4,20 @@ import { getStorage, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { ref } from 'vue'
 
 export const useAuto = () => {
-  const auto = ref(null)
+  const auto = ref({
+    id: '',
+    brand: '',
+    price: '',
+    saled: false,
+    city: '',
+    carcase: '',
+    volume: '',
+    color: '',
+    gear: '',
+    year: '',
+    travel: '',
+    images: [],
+  })
   const autoList = ref([])
   const newAuto = ref({})
 
@@ -29,8 +42,24 @@ export const useAuto = () => {
         console.error('Error: ', e)
       }
   }
-
+  async function getAutoList() {
+    loading.value.autoList = true
+    try {
+      const querySnapshot = await getDocs(collection(db, 'autos'))
+      querySnapshot.forEach((doc) => {
+        autoList.value.push(doc.data())
+      })
+    } catch (e) {
+      console.error('Error: ', e)
+    } finally {
+      loading.value.autoList = false
+    }
+  }
   return {
     createAuto,
+    getAutoList,
+    auto,
+    autoList,
+    loading,
   }
 }
