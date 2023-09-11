@@ -3,12 +3,6 @@ import { defineProps, computed } from 'vue';
 import Card from 'primevue/card'
 import Chip from 'primevue/chip';
 
-const props = defineProps({
-    car: {
-        type: Object,
-        required: true
-    }
-})
 
 const carRemake = computed(() => {
     return {

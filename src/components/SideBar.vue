@@ -38,7 +38,6 @@ const value = ref(0);
         top: 0;
         left: 0;
         height: 100%;
-        z-index: 99;
     }
     .side-bar button {
         height: 100%;
