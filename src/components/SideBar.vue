@@ -41,9 +41,10 @@ const onSubmit = handleSubmit((values) => {
                 <form @submit="onSubmit" class="flex flex-column gap-2">
                     <div class="sidebar-content">
                         <div class="card flex flex-wrap justify-content-center">
-                            <span class="p-input-icon-left">
+                            <span class="p-input-icon-left p-float-label">
                                 <i class="pi pi-search" />
-                                <InputText v-model="value1" placeholder="Search" :class="{ 'p-invalid': errorMessage }"/>
+                                <InputText v-model="value1" placeholder="Введите запрос" :class="{ 'p-invalid': errorMessage }"/>
+                                <label for="value1">Search</label>
                             </span>
                         </div>
                         <span class="p-float-label">
