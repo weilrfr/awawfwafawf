@@ -3,13 +3,9 @@
     import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
     import { onMounted } from 'vue';
     import { useAuto } from '@/composable/useAuto';
-import { async } from '@firebase/util';
+    import { async } from '@firebase/util';
 
     const { auto, createAuto } = useAuto();
-    
-    onMounted(async () => {
-        await createAuto();
-    })
 
     const googleRegister = () => {
     const auth = getAuth()

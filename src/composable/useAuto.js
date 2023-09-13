@@ -3,23 +3,42 @@ import { db } from '@/firebases'
 import { getStorage, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { ref } from 'vue'
 
+
+
 export const useAuto = () => {
-  const auto = ref({
-    id: '',
+  function clear() {
+    newAuto.value = {
+      brand: '',
+      price: '',
+      year: '',
+      volume: '',
+      color: '',
+      saled: '',
+      city: '',
+      carcase: '',
+      gear: '',
+      travel: null,
+      image: false,
+    }
+  }
+
+  const newAuto = ref({
     brand: '',
     price: '',
+    year: '',
+    volume: '',
+    color: '',
     saled: false,
     city: '',
     carcase: '',
-    volume: '',
-    color: '',
     gear: '',
-    year: '',
-    travel: '',
-    images: [],
-  })
+    travel: 0,
+    image: false,
+})
+
+  const auto = ref(null)
+
   const autoList = ref([])
-  const newAuto = ref({})
 
   const loading = ref({
     auto: false,
@@ -29,11 +48,6 @@ export const useAuto = () => {
 
   async function createAuto() {
     loading.value.newAuto = true
-    newAuto.value = {
-      name: 'Toyota',
-      model: 'Corolla',
-    }
-
     try {
         await addDoc(collection(db, 'autos'), newAuto.value).then(() => {
           console.log('Cars added')
@@ -59,7 +73,9 @@ export const useAuto = () => {
     createAuto,
     getAutoList,
     auto,
+    newAuto,
     autoList,
     loading,
+    clear
   }
 }
