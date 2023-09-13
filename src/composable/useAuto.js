@@ -53,12 +53,13 @@ export const useAuto = () => {
     if (!autoList.value.length) return []
 
     const _autoListRemake = autoList.value.map((auto) => {
+      auto.year = formatDate(auto.year);
       auto.price = `${parseInt(auto.price).toFixed(2)}KZT`
       auto.volume = `${auto.volume} л`;
       auto.travel = `${auto.travel} км`;
       auto.age = `${new Date().getFullYear() - auto.year} лет`;
       auto.color = `#${auto.color}`
-      auto.year = formatDate(auto.year);
+
       return auto;
     })
     return _autoListRemake || [];
