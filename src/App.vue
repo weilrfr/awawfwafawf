@@ -5,6 +5,7 @@
     import Footer from '@/components/Footer.vue';
     import CarTable from '@/components/CarTable.vue';
     import SideBar from '@/components/SideBar.vue';
+    import Toasts from '@/components/Toasts.vue';
     import CarAddModal from '@/components/CarAddModal.vue';
 </script>
 
@@ -14,6 +15,7 @@
             <SideBar/>
         </div>
         <div class="content">
+            <Toasts/>
             <Header/>
             <CarAddModal/>
             <CarList/>
