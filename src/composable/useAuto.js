@@ -1,17 +1,18 @@
 import { collection, getDocs, addDoc } from 'firebase/firestore'
 import { db } from '@/firebases'
 import { getStorage, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { ref } from 'vue'
-
-
+import { computed, ref } from 'vue'
+import { createId, formatDate } from '@/services/methods';
 
 export const useAuto = () => {
   function clear() {
     newAuto.value = {
+      id: '',
       brand: '',
       price: '',
       year: '',
       volume: '',
+      age: '',
       color: '',
       saled: '',
       city: '',
@@ -23,10 +24,12 @@ export const useAuto = () => {
   }
 
   const newAuto = ref({
+    id: createId(),
     brand: '',
     price: '',
     year: '',
     volume: '',
+    age: '',
     color: '',
     saled: false,
     city: '',
@@ -46,13 +49,30 @@ export const useAuto = () => {
     newAuto: false,
   })
 
+  const autoListRemake = computed(() => {
+    if (!autoList.value.length) return []
+
+    const _autoListRemake = autoList.value.map((auto) => {
+      auto.price = `${parseInt(auto.price).toFixed(2)}KZT`
+      auto.volume = `${auto.volume} л`;
+      auto.travel = `${auto.travel} км`;
+      auto.age = `${new Date().getFullYear() - auto.year} лет`;
+      auto.color = `#${auto.color}`
+      auto.year = formatDate(auto.year);
+      return auto;
+    })
+    return _autoListRemake || [];
+  });
+
   async function createAuto() {
     loading.value.newAuto = true
     try {
-        await addDoc(collection(db, 'autos'), newAuto.value).then(() => {
-          console.log('Cars added')
-        })
-      } catch (e) {
+        await addDoc(collection(db, 'autos'), newAuto.value).then(
+          async () => {
+            await getAutoList();
+          }
+        )
+    } catch (e) {
         console.error('Error: ', e)
       }
   }
@@ -74,7 +94,7 @@ export const useAuto = () => {
     getAutoList,
     auto,
     newAuto,
-    autoList,
+    autoListRemake,
     loading,
     clear
   }
