@@ -97,6 +97,6 @@ export const useAuto = () => {
     newAuto,
     autoListRemake,
     loading,
-    clear
+    clear,
   }
 }
