@@ -6,7 +6,6 @@
     import SideBar from '@/components/SideBar.vue';
     import Toasts from '@/components/Toasts.vue';
     import CarAddModal from '@/components/CarAddModal.vue';
-
 </script>
 
 <template>
