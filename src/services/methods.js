@@ -6,5 +6,5 @@ export function formatDate(date) {
     const _date = new Date(date.seconds * 1000);
     const year = _date.getFullYear();
 
-    return `${year}г.`;
+    return Number(year);
 }

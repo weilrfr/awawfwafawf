@@ -1,15 +1,18 @@
 <script setup>
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 import Card from 'primevue/card'
 import Chip from 'primevue/chip';
+import { defineProps } from 'vue';
 
-
-const carRemake = computed(() => {
-    return {
-        ...props.car,
-        price: props.car.price + "₽",
+const props = defineProps({
+    auto: {
+        type: Object,
+        required: true,
     }
 })
+
+
+
 
 function changeColor(color) {
     const crappyColor = ['#FF0000', '#00FF00', '#00000FF'];
@@ -23,20 +26,23 @@ function changeColor(color) {
 <template>
     <Card>
         <template #header>
-            <img :src="carRemake.img" alt="car" class="car-image"/>
+            <img alt="car" class="car-image"/>
         </template>
-        <template #title> {{ carRemake.brand }}  </template>
+        <template #title> {{ auto.brand }}  </template>
         <template #content>
-            <p>Цена: {{ carRemake.price }}</p>
-            <p>Год выпуска: {{ carRemake.year }}</p>
-            <p>Объем двигателя: {{ carRemake.volume }}</p>
-            <p>Цвет: {{ carRemake.color }}</p>
+            <p>Цена: {{ auto.price }}</p>
+            <p>Объем: {{ auto.volume }}</p>
+            <p>Кузов: {{ auto.carcase }}</p>
+            <p>Город: {{ auto.city }}</p>
+            <p>Год выпуска: {{ auto.year }}</p>
+            <p>Объем двигателя: {{ auto.volume }}</p>
+            <p>Цвет: {{ auto.color }}</p>
         </template>
         <template #footer>
             <div class="chipes">
-                <Chip v-if="Number(carRemake.price.slice(0, -1)) > 2300000" label="Дорогой автомобиль" icon="pi pi-bitcoin"/> 
-                <Chip v-if="Number(carRemake.year) <= 2000" label="Старый" icon="pi pi-calendar-times"/>
-                <Chip v-if="changeColor(carRemake.color)" label="Конченный цвет" icon="pi "/> 
+                <Chip v-if="Number(auto.price.slice(0, -1)) > 2300000" label="Дорогой автомобиль" icon="pi pi-bitcoin"/> 
+                <Chip v-if="Number(auto.year) <= 2000" label="Старый" icon="pi pi-calendar-times"/>
+                <Chip v-if="changeColor(auto.color)" label="Конченный цвет" icon="pi "/> 
             </div>
         </template>
     </Card>

@@ -8,7 +8,8 @@
     import Calendar from 'primevue/calendar';
     import ColorPicker from 'primevue/colorpicker'
     import { useAuto } from '@/composable/useAuto';
-
+    import FileUpload from 'primevue/fileupload';
+    
     const { newAuto, createAuto, loading, clear } = useAuto();
 
     const visible = ref(false);
@@ -117,6 +118,10 @@
                             <InputText id="travel" v-model="newAuto.travel" />
                             <label for="travel">Пробег</label>
                         </span>
+                    </div>
+                    <div class="p-field">
+                        <label for="photo">Картинки</label>
+                        <FileUpload id="photo" v-model="newAuto.image" mode="basic" accept="image/*" maxFileSize="10000000" @upload="onUpload"/>
                     </div>
                 </div>
            </template>

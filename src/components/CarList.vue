@@ -1,12 +1,17 @@
 <script setup>
     import CarItem from '@/components/CarItem.vue';
-    import { defineProps } from 'vue';
+    import { onMounted } from "vue";
+    import { useAuto } from "../composable/useAuto";
+    const { autoListRemake, getAutoList, loading } = useAuto();
+    onMounted(async() => {
+        await getAutoList();
+    })
 </script>
 
 <template>
     <section class="cars-list">
-        <section class="cars" v-for="car in cars" :key="car">
-            <CarItem :car="car"/>
+        <section class="cars" v-for="auto in autoListRemake" :key="auto" :loading="loading.autoList">
+            <CarItem :auto="auto"/>
         </section>
     </section>
 </template>
