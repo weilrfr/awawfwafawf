@@ -66,6 +66,9 @@ const onSubmit = handleSubmit((values) => {
 
 <style scoped>
     .side-bar {
+        position: absolute;
+        top: 0px;
+        left: 0px;
         height: 100%;
     }
     .side-bar button {
