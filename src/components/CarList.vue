@@ -22,14 +22,11 @@
         width: 100%;
         padding: 0px 20px;
         flex-wrap: wrap;
+        margin: 20px 0px 20px 0px;   
     }
 
     .cars-list .cars {
-        flex-basis: 25%;
-        margin: 20px 75px;
-    }
-
-    .cars {
-        border-radius: 20px;
+        flex-basis: 23%;
+        margin: 1% 1%;
     }
 </style>

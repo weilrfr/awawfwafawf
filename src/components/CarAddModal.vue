@@ -62,12 +62,12 @@
 
 <template>
     <Button icon="pi pi-plus" @click="toggleVisible" />
-        <Dialog v-model:visible="visible" modal header="Добавить автомобиль" :style="{ width: '20vw' }">
+        <Dialog v-model:visible="visible" modal header="Добавить автомобиль" :style="{ width: '30%' }">
             <template #default>
                 <div class="p-fluid">
                     <div class="p-field">
                         <span class="p-float-label">
-                            <Dropdown id="brand" v-model="newAuto.brand" editable :options="brandLabel" option-label="brand" option-value="brand" />
+                            <Dropdown id="brand" v-model="newAuto.brand" editable :options="brandLabel" option-label="brand" option-value="brand"/>
                             <label for="brand">Бренд</label>
                         </span>
                     </div>
@@ -90,11 +90,10 @@
                     </div>
                     <div class="p-field">
                         <span class="p-float-label">
-                            <ColorPicker v-model="newAuto.color" id="color"/>
+                            <ColorPicker v-model="newAuto.color" id="color" :style="`width: 100%;`"/>
                             <label for="color">Цвет</label>
                         </span>
                     </div>
-
                     <span class="p-float-label">
                         <InputText id="saled" v-model="newAuto.saled" />
                         <label for="saled">Продано</label>

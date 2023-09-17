@@ -29,7 +29,7 @@ const carColumns = [
 </script>
 
 <template>
-    <DataTable :value="autoListRemake" :loading="loading.autoList">
+    <DataTable :value="autoListRemake" :loading="loading.autoList" class="car-table">
         <Column v-for="column in carColumns" :key="column.field" :field="column.field" :header="column.header">
           <template #body="slotProps">
             <span v-if="column.field === 'saled'">
@@ -48,4 +48,9 @@ const carColumns = [
 :deep(.p-disabled) {
     opacity: 1;
 }
+
+  .car-table {
+    margin: 20px 0px;
+  }
+
 </style>

@@ -1,5 +1,4 @@
 <script setup>
-import { computed } from 'vue';
 import Card from 'primevue/card'
 import Chip from 'primevue/chip';
 import { defineProps } from 'vue';
@@ -24,7 +23,7 @@ function changeColor(color) {
 </script>
 
 <template>
-    <Card>
+    <Card class="car">
         <template #header>
             <img alt="car" class="car-image"/>
         </template>
@@ -73,7 +72,7 @@ function changeColor(color) {
 
     p {
         margin: 0px;
-        padding: 0px;
+        padding: 5px 0px;
     }
     .car-image {
         text-align: center;
@@ -91,9 +90,10 @@ function changeColor(color) {
 
     .car {
         border-radius: 20px;
+        border: 1px solid black;
+        box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
         text-align: center;
     }
-
     .car > * {
         padding: 5px 0px;
         transition: 300ms;
