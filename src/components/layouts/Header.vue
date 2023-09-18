@@ -29,27 +29,27 @@
         <div class="icon">
             <ul>
                 <li>
-                    <a>
+                    <a href="#">
                         <i class="pi pi-github"></i>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="#">
                         <i class="pi pi-discord"></i>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="#">
                         <i class="pi pi-discord"></i>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="#">
                         <i class="pi pi-discord"></i>            
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="#">
                         <i class="pi pi-discord"></i>
                     </a>
                 </li>

@@ -9,8 +9,9 @@
     import ColorPicker from 'primevue/colorpicker'
     import { useAuto } from '@/composable/useAuto';
     import FileUpload from 'primevue/fileupload';
-    
-    const { newAuto, createAuto, loading, clear } = useAuto();
+
+
+    const { newAuto, createAuto, clear, onUpload } = useAuto();
 
     const visible = ref(false);
 
@@ -119,8 +120,16 @@
                         </span>
                     </div>
                     <div class="p-field">
-                        <label for="photo">Картинки</label>
-                        <FileUpload id="photo" v-model="newAuto.image" mode="basic" accept="image/*" maxFileSize="10000000" @upload="onUpload"/>
+                        <form class="input__wrapper" enctype="multipart/form-data">
+                            <!-- <input id="inputfile" class="input inputfile" name="images" type="file" accept=".jpg, .png" @input="onUpload($event)" />
+                            <label for="inputfile" class="inputfile-button">
+                                <span class="input__file-icon-wrapper">
+                                    <img class="input__file-icon" src="@/assets/uploadImage.png" alt="Выбрать файл" width="25" />
+                                </span>
+                                <span class="input__file-button-text">Машинка</span>
+                            </label> -->
+                            <FileUpload mode="basic" name="images" accept=".jpg, .png" @input="onUpload($event)" />
+                        </form>              
                     </div>
                 </div>
            </template>

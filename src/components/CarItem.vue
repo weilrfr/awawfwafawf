@@ -25,7 +25,7 @@ function changeColor(color) {
 <template>
     <Card class="car">
         <template #header>
-            <img alt="car" class="car-image"/>
+            <img alt="car" class="car-image" :scr="auto.image"/>
         </template>
         <template #title> {{ auto.brand }}  </template>
         <template #content>

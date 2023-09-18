@@ -3,6 +3,7 @@ import { db } from '@/firebases'
 import { getStorage, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { computed, ref } from 'vue'
 import { createId, formatDate } from '@/services/methods';
+import * as firebase from 'firebase/storage';
 
 export const useAuto = () => {
   function clear() {
@@ -36,7 +37,7 @@ export const useAuto = () => {
     carcase: '',
     gear: '',
     travel: 0,
-    image: false,
+    image: '',
 })
 
   const auto = ref(null)
@@ -90,11 +91,39 @@ export const useAuto = () => {
       loading.value.autoList = false
     }
   }
+
+  async function uploadImage(file) {
+    loading.value.newAuto = true
+    const storage = getStorage()
+    const storageRef = firebase.ref(storage, `autos/${file.name}`)
+    await uploadBytes(storageRef, file)
+      .then(() => {
+        console.log('File uploaded successfully')
+
+        getDownloadURL(storageRef).then((url) => {
+          newAuto.value.image = url;
+        })
+        .catch((error) => {
+          console.log('Error: ', error)
+        })
+    })
+    loading.value.newAuto = false
+  }
+
+  async function onUpload(e) {
+    const image = e.target.files[0]
+
+    await uploadImage(image)
+  }
+  
+
+
   return {
     createAuto,
     getAutoList,
     auto,
     newAuto,
+    onUpload,
     autoListRemake,
     loading,
     clear,

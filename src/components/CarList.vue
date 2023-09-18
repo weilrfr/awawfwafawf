@@ -23,10 +23,10 @@
         padding: 0px 20px;
         flex-wrap: wrap;
         margin: 20px 0px 20px 0px;   
+        justify-content: space-evenly;
     }
 
     .cars-list .cars {
         flex-basis: 23%;
-        margin: 1% 1%;
     }
 </style>

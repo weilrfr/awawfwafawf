@@ -4,8 +4,8 @@
     import Footer from '@/components/Footer.vue';
     import CarTable from '@/components/CarTable.vue';
     import SideBar from '@/components/SideBar.vue';
-    import Toasts from '@/components/Toasts.vue';
     import CarAddModal from '@/components/CarAddModal.vue';
+    import { RouterView } from 'vue-router';
 </script>
 
 <template>
@@ -14,12 +14,12 @@
             <SideBar/>
         </div>
         <div class="content">
-            <Toasts/>
             <Header/>
-            <CarAddModal/>
+            <!-- <CarAddModal/>
             <CarList/>
             <CarTable/>
-            <Footer/>
+            <Footer/> -->
+            <router-view/>
         </div>
     </section>
 </template>
