@@ -20,7 +20,7 @@ export const useAuto = () => {
       carcase: '',
       gear: '',
       travel: null,
-      image: false,
+      image: null,
     }
   }
 
@@ -78,6 +78,7 @@ export const useAuto = () => {
         console.error('Error: ', e)
       }
   }
+
   async function getAutoList() {
     loading.value.autoList = true
     try {
@@ -96,11 +97,12 @@ export const useAuto = () => {
     loading.value.newAuto = true
     const storage = getStorage()
     const storageRef = firebase.ref(storage, `autos/${file.name}`)
-    await uploadBytes(storageRef, file)
+    await firebase.uploadBytes(storageRef, file)
       .then(() => {
         console.log('File uploaded successfully')
 
-        getDownloadURL(storageRef).then((url) => {
+        firebase.getDownloadURL(storageRef).then((url) => {
+          console.log('URL uploaded successfully')
           newAuto.value.image = url;
         })
         .catch((error) => {
@@ -116,16 +118,31 @@ export const useAuto = () => {
     await uploadImage(image)
   }
   
-
+  async function getAuto(id) {
+    loading.value.auto = true
+    try {
+      const querySnapshot = await getDocs(collection(db, 'autos'))
+      querySnapshot.forEach((doc) => {
+        if (doc.data().id === id) {
+          auto.value = doc.data()
+        }
+      })
+    } catch (e) {
+      console.error('Error: ', e)
+    } finally {
+      loading.value.auto = false
+    }
+  }
 
   return {
     createAuto,
     getAutoList,
+    onUpload,
+    getAuto,
+    clear,
     auto,
     newAuto,
-    onUpload,
     autoListRemake,
     loading,
-    clear,
   }
 }

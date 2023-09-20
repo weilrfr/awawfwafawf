@@ -29,29 +29,19 @@
         <div class="icon">
             <ul>
                 <li>
-                    <a href="#">
-                        <i class="pi pi-github"></i>
-                    </a>
+                    <i class="pi pi-github"></i>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="pi pi-discord"></i>
-                    </a>
+                    <i class="pi pi-discord"></i>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="pi pi-discord"></i>
-                    </a>
+                    <i class="pi pi-discord"></i>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="pi pi-discord"></i>            
-                    </a>
+                    <i class="pi pi-discord"></i>            
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="pi pi-discord"></i>
-                    </a>
+                    <i class="pi pi-discord"></i>
                 </li>
             </ul>
         </div>
@@ -59,11 +49,11 @@
             <div class="logo">Logo</div>
             <div class="menu">
                 <ul class="nav">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Shortcodes</a></li>
+                    <li>About</li>
+                    <li>Pages</li>
+                    <li>Blog</li>
+                    <li>Portfolio</li>
+                    <li>Shortcodes</li>
                     <li>
                         <button type="button" class="p-link p-ml-auto" @click="googleRegister">
                             <i class="pi pi-google"></i>

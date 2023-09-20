@@ -25,7 +25,7 @@ function changeColor(color) {
 <template>
     <Card class="car">
         <template #header>
-            <img alt="car" class="car-image" :scr="auto.image"/>
+            <img alt="car" class="car-image" :src="auto.image"/>
         </template>
         <template #title> {{ auto.brand }}  </template>
         <template #content>
@@ -93,7 +93,14 @@ function changeColor(color) {
         border: 1px solid black;
         box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
         text-align: center;
+        transition: 300ms;
     }
+
+    .car:hover {
+        transform: translateY(-15px);
+        transition: 300ms;
+    }
+
     .car > * {
         padding: 5px 0px;
         transition: 300ms;

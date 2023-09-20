@@ -13,6 +13,7 @@
         <div class="sidebar-cont">
             <SideBar/>
         </div>
+        <CarAddModal/>
         <div class="content">
             <Header/>
             <!-- <CarAddModal/>
