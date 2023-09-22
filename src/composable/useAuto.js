@@ -38,7 +38,7 @@ export const useAuto = () => {
     gear: '',
     travel: 0,
     image: '',
-})
+  })
 
   const auto = ref(null)
 

@@ -23,7 +23,7 @@ onMounted(async() => {
             <img alt="car" class="car-img" :src="auto.image"/>
         </div>
         <div class="info">
-            <Panel header="Header">
+            <Panel :header="auto.brand">
                 <p>Цена: {{ auto.price }}</p>
                 <Divider />
                 <p>Объем: {{ auto.volume }}</p>
@@ -37,7 +37,6 @@ onMounted(async() => {
                 <p>Объем двигателя: {{ auto.volume }}</p>
                 <Divider />
                 <p>Цвет: {{ auto.color }}</p>
-                <Divider />
             </Panel>
         </div>
     </div>
