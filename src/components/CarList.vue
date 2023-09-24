@@ -37,6 +37,6 @@
     }
 
     .cars-list .cars {
-        flex-basis: 23%;
+        flex-basis: 20%;
     }
 </style>

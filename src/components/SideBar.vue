@@ -22,7 +22,6 @@ function validateField(value) {
 
 const checked = ref(false);
 const visible = ref(false);
-// const value = ref(null);
 const value1 = ref(null);
 
 const onSubmit = handleSubmit((values) => {
@@ -60,7 +59,7 @@ const onSubmit = handleSubmit((values) => {
                 </form>
             </Sidebar>
         </form>
-        <Button icon="pi pi-arrow-right" @click="visible = true" />
+        <Button icon="pi pi-arrow-right" @mouseenter="visible = true"/>
     </div>
 </template>
 

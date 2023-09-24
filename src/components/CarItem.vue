@@ -48,8 +48,13 @@ function changeColor(color) {
 </template>
 
 <style scoped>
+    .car >:first-child {
+        height: 200px;
+        flex-basis: 100%;
+    }
     .car-image {
-        width: 100%;
+        width: 100%; 
+        height: 100%;
     }
     .chipes {
         display: flex;
@@ -94,6 +99,9 @@ function changeColor(color) {
         box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
         text-align: center;
         transition: 300ms;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .car:hover {

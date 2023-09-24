@@ -35,7 +35,7 @@ const items = ref([
         route: '/'
     },
     {
-        label: 'Calendar',
+        label: 'List',
         icon: 'pi pi-fw pi-calendar',
         route: '/table'
     },
@@ -130,7 +130,6 @@ onMounted(() => {
                     </a>
                 </template>
             </TabMenu>
-            
         </div>
         <CarAddModal/>
     </section>
@@ -141,8 +140,9 @@ onMounted(() => {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        border-bottom: 1px solid white;
-        margin-bottom: 20px;
+        justify-content: center;
+        margin-bottom: 100px;
+        padding-top: 20px;
     }
     .icon {
         flex-basis: 100%;
