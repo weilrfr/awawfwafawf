@@ -31,7 +31,6 @@ function changeColor(color) {
         <template #title> {{ auto.brand }}  </template>
         <template #content>
             <p>Цена: {{ auto.price }}</p>
-            <p>Объем: {{ auto.volume }}</p>
             <p>Кузов: {{ auto.carcase }}</p>
             <p>Город: {{ auto.city }}</p>
             <p>Год выпуска: {{ auto.year }}</p>
