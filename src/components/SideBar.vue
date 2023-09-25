@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import Sidebar from 'primevue/sidebar';
 import Button from "primevue/button";
-import InputSwitch from 'primevue/inputswitch';
 import InputText from 'primevue/inputtext';
 import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
@@ -20,7 +19,6 @@ function validateField(value) {
     return true;
 }
 
-const checked = ref(false);
 const visible = ref(false);
 const value1 = ref(null);
 
@@ -40,21 +38,18 @@ const onSubmit = handleSubmit((values) => {
                 <form @submit="onSubmit" class="flex flex-column gap-2">
                     <div class="sidebar-content">
                         <div class="card flex flex-wrap justify-content-center">
-                            <span class="p-input-icon-left p-float-label">
+                            <div class="p-input-icon-left p-float-label" :style="`width: 100%`">
                                 <i class="pi pi-search" />
-                                <InputText v-model="value1" placeholder="Введите запрос" :class="{ 'p-invalid': errorMessage }"/>
-                                <label for="value1">Search</label>
-                            </span>
+                                <InputText v-model="value1" placeholder="Введите запрос" :class="{ 'p-invalid': errorMessage }" :style="`width: 100%`"/>
+                                <label for="value1">Поиск</label>
+                            </div>
                         </div>
-                        <span class="p-float-label">
-                            <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" />
-                            <label for="value">Input</label>
+                        <span class="p-float-label" :style="`margin-bottom: 20px`">
+                            <InputText id="value" v-model="value" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" :style="`width: 100%; margin-bottom:`"/>
+                            <label for="value">Задайте нам вопрос</label>
                         </span>
-                        <div class="card flex justify-content-center">
-                            <InputSwitch v-model="checked"/>
-                        </div>
                         <small class="p-error" id="text-error">{{ errorMessage || '&nbsp;' }}</small>
-                        <Button type="submit" label="Submit" />
+                        <Button type="submit" label="Submit" :style="`width: 100%`"/>
                     </div>
                 </form>
             </Sidebar>

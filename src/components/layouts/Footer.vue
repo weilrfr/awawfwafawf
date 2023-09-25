@@ -1,5 +1,4 @@
 <script setup>
-import Card from 'primevue/card'
 import FieldSet from 'primevue/fieldset';
 import TextArea from 'primevue/textarea';
 import { ref } from 'vue';
@@ -13,7 +12,7 @@ const value = ref('');
             <template #legend>
                 <div class="flex align-items-center text-primary">
                     <span class="pi pi-user mr-2"></span>
-                    <span class="font-bold text-lg">TOO "Бояркин Игорь"</span>
+                    <span class="font-bold text-lg">TOO "Weilcar"</span>
                 </div>
             </template>
             <div class="info">
@@ -23,7 +22,7 @@ const value = ref('');
                     <li>Сервис и запасные части: +7 727 225 64 24</li>
                     <li>Мобильный номер 8 702 075 06 40</li>
                     <li>Call Center *звонок бесплатный 8 800 080 64 24</li>
-                    <li>info@mercedes-benz.com.kz</li>
+                    <li>weilcar.com</li>
                 </ul>
                 <div class="time">
                     <h2>Часы работы</h2>

@@ -4,7 +4,8 @@ import { onMounted } from "vue";
 import { useRoute } from 'vue-router'
 import { ref } from 'vue';
 import Divider from 'primevue/divider';
-import Checkbox from 'primevue/checkbox';
+import Button from 'primevue/button';
+import ColorPicker from "primevue/colorpicker";
 
 const { auto, getAuto } = useAuto();
 const route = useRoute();
@@ -43,16 +44,19 @@ const toggleChecked = () => {
                 <Divider />
                 <p>Город: {{ auto.city }}</p>
                 <Divider />
-                <p>Год выпуска: {{ auto.year }}</p>
-                <Divider />
                 <p>Объем двигателя: {{ auto.volume }}</p>
                 <Divider />
-                <p>Цвет: {{ auto.color }}</p>
+                <p>Цвет: <ColorPicker v-model="auto.color" disabled></ColorPicker></p>
+                <Button class="buy-btn" label="Купить"/>
         </div>
     </div>
 </template>
 
 <style scoped>
+    .buy-btn{
+        width: 100%;
+        margin-top: 20px;
+    }
     .fill-heart {
         animation: heart-fill 600ms;
     }
@@ -93,7 +97,7 @@ const toggleChecked = () => {
     }
     .car-info {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
     }
     .car-img {
         width: 100%;
@@ -103,5 +107,6 @@ const toggleChecked = () => {
     .img {
         flex-basis: 50%;
         height: 453px;
+        margin-right: 20px;
     }
 </style>

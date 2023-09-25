@@ -2,6 +2,7 @@
 import Card from 'primevue/card'
 import Chip from 'primevue/chip';
 import { defineProps } from 'vue';
+import ColorPicker from "primevue/colorpicker";
 
 const props = defineProps({
     auto: {
@@ -35,7 +36,7 @@ function changeColor(color) {
             <p>Город: {{ auto.city }}</p>
             <p>Год выпуска: {{ auto.year }}</p>
             <p>Объем двигателя: {{ auto.volume }}</p>
-            <p>Цвет: {{ auto.color }}</p>
+            <p>Цвет: <ColorPicker v-model="auto.color" disabled></ColorPicker></p>
         </template>
         <template #footer>
             <div class="chipes">
