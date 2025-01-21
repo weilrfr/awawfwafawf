@@ -72,6 +72,11 @@
                             <label for="brand">Бренд</label>
                         </span>
                     </div>
+                    
+                    <div class="p-field">
+                        <label for="model">Модель</label>
+                        <InputText id="model" v-model="newAuto.model" locale="ru-ru"/>
+                    </div>
                     <div class="p-field">
                         <label for="price">Цена</label>
                         <InputNumber id="price" v-model="newAuto.price" inputId="currency-us" mode="currency" currency="KZT" locale="ru-ru"/>

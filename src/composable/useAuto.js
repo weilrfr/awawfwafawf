@@ -9,6 +9,7 @@ export const useAuto = () => {
   function clear() {
     newAuto.value = {
       id: '',
+      model: '',
       brand: '',
       price: '',
       year: '',
@@ -27,6 +28,7 @@ export const useAuto = () => {
   const newAuto = ref({
     id: createId(),
     brand: '',
+    model: '',
     price: '',
     year: '',
     volume: '',
