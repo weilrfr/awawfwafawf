@@ -28,22 +28,23 @@ function changeColor(color) {
         <template #header>
             <img alt="car" class="car-image" :src="auto.image"/>
         </template>
-        <template #title> {{ auto.brand }}  </template>
+        <template #title> {{ auto.brand }} {{ auto.model }}  </template>
         <template #content>
             <p>Цена: {{ auto.price }}</p>
             <p>Кузов: {{ auto.carcase }}</p>
             <p>Город: {{ auto.city }}</p>
             <p>Год выпуска: {{ auto.year }}</p>
             <p>Объем двигателя: {{ auto.volume }}</p>
+            <p>Пробег: {{ auto.travel }}</p>
             <p>Цвет: <ColorPicker v-model="auto.color" disabled></ColorPicker></p>
         </template>
-        <template #footer>
+        <!-- <template #footer>
             <div class="chipes">
                 <Chip v-if="Number(auto.price.slice(0, -1)) > 2300000" label="Дорогой автомобиль" icon="pi pi-bitcoin"/> 
                 <Chip v-if="Number(auto.year) <= 2000" label="Старый" icon="pi pi-calendar-times"/>
                 <Chip v-if="changeColor(auto.color)" label="Конченный цвет" icon="pi "/> 
             </div>
-        </template>
+        </template> -->
     </Card>
 </template>
 

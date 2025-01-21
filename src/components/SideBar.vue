@@ -34,7 +34,7 @@ const onSubmit = handleSubmit((values) => {
 <template>
     <div class="card flex justify-content-center side-bar">
         <form>
-            <Sidebar v-model:visible="visible">
+            <Sidebar v-model:visible="visible" @mouseleave="visible = false">
                 <form @submit="onSubmit" class="flex flex-column gap-2">
                     <div class="sidebar-content">
                         <div class="card flex flex-wrap justify-content-center">

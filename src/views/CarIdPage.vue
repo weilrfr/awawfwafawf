@@ -31,7 +31,7 @@ const toggleChecked = () => {
         </div>
         <div class="info">
                 <div class="header">
-                    <p>{{ auto.brand }}</p>
+                    <p>{{ auto.brand }} {{ auto.model }}</p>
                     <i v-if="!checked" class="pi pi-heart heart" @click="toggleChecked"></i>
                     <i v-else class="pi pi-heart-fill fill-heart" style="color: red" @click="toggleChecked"></i>
                 </div>
@@ -45,6 +45,8 @@ const toggleChecked = () => {
                 <p>Город: {{ auto.city }}</p>
                 <Divider />
                 <p>Объем двигателя: {{ auto.volume }}</p>
+                <Divider />
+                <p>Пробег: {{ auto.travel }}</p>
                 <Divider />
                 <p>Цвет: <ColorPicker v-model="auto.color" disabled></ColorPicker></p>
                 <Button class="buy-btn" label="Купить"/>

@@ -14,6 +14,7 @@ onMounted(() => {
 
 const carColumns = [
   { field: 'brand', header: 'Бренд' },
+  { field: 'model', header: 'Модель' },
   { field: 'price', header: 'Цена' },
   { field: 'year', header: 'Год' },
   { field: 'age', header: 'Возраст' },
