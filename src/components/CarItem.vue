@@ -3,8 +3,7 @@ import Card from 'primevue/card'
 import Chip from 'primevue/chip';
 import { defineProps } from 'vue';
 import ColorPicker from "primevue/colorpicker";
-import Divider from 'primevue/divider';
-
+    
 const props = defineProps({
     auto: {
         type: Object,
@@ -32,17 +31,11 @@ function changeColor(color) {
         <template #title> {{ auto.brand }} {{ auto.model }}  </template>
         <template #content>
             <p>Цена: {{ auto.price }}</p>
-            <Divider />
             <p>Кузов: {{ auto.carcase }}</p>
-            <Divider />
             <p>Город: {{ auto.city }}</p>
-            <Divider />
             <p>Год выпуска: {{ auto.year }}</p>
-            <Divider />
             <p>Объем двигателя: {{ auto.volume }}</p>
-            <Divider />
             <p>Пробег: {{ auto.travel }}</p>
-            <Divider />
             <p>Цвет: <ColorPicker v-model="auto.color" disabled></ColorPicker></p>
         </template>
         <!-- <template #footer>
